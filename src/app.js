@@ -32,7 +32,7 @@ app.use(cookieParser());
 
 app.use("/api/doc", swaggerUI.serve, swaggerUI.setup(spec));
 app.get('/', (req, res, next)=>{
-  res.json({message: MESSAGE});
+  res.json({message: `Desde QA: ${MESSAGE}`});
 });
 app.use('/api/users',usersRouter);
 app.use('/api/pets',petsRouter);
