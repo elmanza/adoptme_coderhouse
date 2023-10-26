@@ -26,12 +26,14 @@ const spec = swaggerDoc(swaggerOptions);
 const app = express();
 const PORT = process.env.PORT||8080;
 const connection = mongoose.connect(`mongodb+srv://manzano:R91GSBjvF0nTEncU@empowermentlab.gj9tokx.mongodb.net/clase52225?retryWrites=true&w=majority`)
-
+const MESSAGE = process.env.MESSAGE || "HOLA";
 app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/doc", swaggerUI.serve, swaggerUI.setup(spec));
-
+app.get('/', (req, res, next)=>{
+  res.json({message: MESSAGE});
+});
 app.use('/api/users',usersRouter);
 app.use('/api/pets',petsRouter);
 app.use('/api/adoptions',adoptionsRouter);
