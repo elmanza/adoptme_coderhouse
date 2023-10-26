@@ -43,10 +43,15 @@ const createPetWithImage = async(req,res) =>{
     const result = await petsService.create(pet);
     res.send({status:"success",payload:result})
 }
+const getHome = async(req,res) =>{
+    const pets = await petsService.getAll();
+    res.render("pets", {pets})
+}
 export default {
     getAllPets,
     createPet,
     updatePet,
     deletePet,
-    createPetWithImage
+    createPetWithImage,
+    getHome
 }

@@ -27,9 +27,15 @@ const deleteUser = async(req,res) =>{
     res.send({status:"success",message:"User deleted"})
 }
 
+const getHome = async(req,res) =>{
+    const users = await usersService.getAll();
+    res.render("users", {users})
+}
+
 export default {
     deleteUser,
     getAllUsers,
     getUser,
-    updateUser
+    updateUser,
+    getHome
 }

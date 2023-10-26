@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body style="padding: 0px; margin: 0px;">
+    <div style="max-width: 500px; width: 100%; margin: 80px auto 0px; border-radius: 8px; border: 1px solid rgb(233, 233, 233);">
+        <h1>Lista de usuarios</h1>
+        <div>
+            <% if (users.length) { %>
+                <ul>
+                    <% users.forEach((user) => { %>
+                        <li><%= user.email %></li>
+                    <% }) %>
+                </ul>
+                <% } %>
+        </div>
+    </div>
+</body>
+</html>

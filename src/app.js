@@ -29,7 +29,8 @@ const connection = mongoose.connect(`mongodb+srv://manzano:R91GSBjvF0nTEncU@empo
 const MESSAGE = process.env.MESSAGE || "HOLA";
 app.use(express.json());
 app.use(cookieParser());
-
+app.set("views", "views");
+app.set("view engine", "ejs");
 app.use("/api/doc", swaggerUI.serve, swaggerUI.setup(spec));
 app.get('/', (req, res, next)=>{
   res.json({message: `Desde QA: ${MESSAGE}`});
